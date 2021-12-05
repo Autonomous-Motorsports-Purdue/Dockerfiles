@@ -6,7 +6,7 @@ Run the `build-zed.sh` file to build the images `zed-gl-base` and `zed-ros`. The
 The `run-docker` script run a docker container interactively, as well as
 1. Initializing X11 for GUI support within the cocntainer (works on linux only) 
 2. Sets up GPU passthrough
-3. Mounts $HOME code for whatever files you want to share between your machine and the docker container (turn this off trivially in the script)
+3. Mounts `$HOME/code` for whatever files you want to share between your machine and the docker container (turn this off trivially in the script)
 
 Use the script like this:
 1. Run it without any arguments to list all images
