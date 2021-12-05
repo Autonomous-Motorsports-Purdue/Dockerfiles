@@ -1,0 +1,31 @@
+FROM nvidia_noetic:latest
+ 
+# Change the default shell to Bash
+SHELL [ "/bin/bash" , "-c" ]
+ 
+# Get compilers
+RUN apt-get install -y build-essential
+ 
+# Install Git
+RUN apt-get update && apt-get install -y git
+ 
+# Import the AMP workspace
+RUN source /opt/ros/noetic/setup.bash \
+ && git clone --branch upgrade-to-noetic https://github.com/Autonomous-Motorsports-Purdue/AMP-v1 amp-workspace 
+ 
+RUN source /opt/ros/noetic/setup.bash \
+ && cd /amp-workspace \
+ && rosdep install --from-paths src --ignore-src -r -y 
+ 
+# Build the AMP workspace and ensure it's sourced
+RUN source /opt/ros/noetic/setup.bash \
+ && cd /amp-workspace \
+ && catkin_make 
+ 
+RUN apt-get update && \
+    echo "31\n1" > apt-get install -y gedit
+ 
+RUN echo "source /amp-workspace/devel/setup.bash" >> ~/.bashrc
+ 
+# Set the working folder at startup
+WORKDIR /amp-workspace
