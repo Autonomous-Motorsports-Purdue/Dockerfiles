@@ -1,7 +1,7 @@
 # Dockerfiles
 A variety of docker images (Zed, ROS, Cuda) which may be helpful for launching different environments quickly 
 
-Docker is software that lets you package code, dependencies, and environments into containers. Containers can be entire ubuntu distros -- the dockerfiles here are actually ubuntu distros with certain dependencies, like ROS, CUDA, and ZED installed in them. Containers are convenient becasue they will work the same anywhere - the user doesn't have to to install everything again.  
+Docker is software that lets you package code, dependencies, and environments into containers. The containers in this repo are actually ubuntu distros with certain dependencies, like ROS, CUDA, and ZED, installed in them. Containers are convenient becasue they will work the same anywhere and the user does not have to to install everything again.  
 
 However, a ubuntu container will only run on Linux machines and a windows containers will only run on windows. You can't launch these dockerfiles from Windows or Mac.
 
