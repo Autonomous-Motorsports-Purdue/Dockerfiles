@@ -1,8 +1,16 @@
 # Dockerfiles
 A variety of docker images (Zed, ROS, Cuda) which may be helpful for launching different environments quickly 
 
+Docker is software that lets you package code, dependencies, and environments into containers. The containers in this repo are actually ubuntu distros with certain dependencies, like ROS, CUDA, and ZED, installed in them. Containers are convenient becasue they will work the same anywhere and the user does not have to to install everything again.  
+
+However, a ubuntu container will only run on Linux machines and a windows containers will only run on windows. You can't launch these dockerfiles from Windows or Mac.
+
+# Building
 Run the `build-zed.sh` file to build the images `zed-gl-base` and `zed-ros`. They have arguments that are annoying to specify manually. (And ros depends on gl-base)
 
+To build all other images, first `cd` into the `Dockerfiles` directory. Then, to build `dockerfile-name`, do `docker build -f dockerfile-name -t dockerfile-name .`
+
+# Running
 The `run-docker` script run a docker container interactively, as well as
 1. Initializing X11 for GUI support within the cocntainer (works on linux only) 
 2. Sets up GPU passthrough
