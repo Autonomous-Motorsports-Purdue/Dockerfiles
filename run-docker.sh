@@ -11,7 +11,8 @@ xhost + local:docker > /dev/null
 # Define Docker volumes and environment variables
 DOCKER_VOLUMES="
 --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
---volume="$HOME/docker/code:/code"
+--volume="$HOME/docker/code:/code" \
+--volume="$HOME/AMP_ASSv1:/AMP_ASSv1" \
 "
 
 # Must pass privileged flag so docker can find gpus without needing

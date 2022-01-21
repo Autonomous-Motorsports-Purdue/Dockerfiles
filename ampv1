@@ -13,12 +13,13 @@ RUN apt-get update && apt-get install -y git
 
 # Alos, delete the teb_local_planner_tutorials dependency since it does not exists in noetic
 RUN source /opt/ros/noetic/setup.bash \
- && git clone https://github.com/Autonomous-Motorsports-Purdue/AMP-v1 amp-workspace \
+ && git clone https://github.com/Autonomous-Motorsports-Purdue/AMP_ASSv1 amp-workspace \
  && cd /amp-workspace \
  && sed -i '/teb_local_planner_tutorials/d' src/kart_2dnav/package.xml \
  && sed -i '/teb_local_planner_tutorials/d' src/kart_2dnav/CMakeLists.txt 
  
 RUN source /opt/ros/noetic/setup.bash \
+ && cd /amp-workspace \
  && rosdep install --from-paths src --ignore-src -r -y 
  
 # Build the AMP workspace and ensure it's sourced
@@ -29,4 +30,4 @@ RUN source /opt/ros/noetic/setup.bash \
 RUN echo "source /amp-workspace/devel/setup.bash" >> ~/.bashrc
  
 # Set the working folder at startup
-WORKDIR /amp-workspace
+WORKDIR /AMP_ASSv1
