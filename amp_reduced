@@ -1,0 +1,15 @@
+FROM nvidia_melodic:latest
+ 
+# Change the default shell to Bash
+SHELL [ "/bin/bash" , "-c" ]
+ 
+# Get compilers
+RUN apt-get install -y build-essential
+ 
+# Install Git
+RUN apt-get update && apt-get install -y git
+ 
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y gedit
+ 
+# Set the working folder at startup
+WORKDIR /AMP_ASSv1
